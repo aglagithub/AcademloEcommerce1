@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="76.379845mm"
+   height="136.31158mm"
+   viewBox="0 0 76.379845 136.31158"
+   version="1.1"
+   id="svg894"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="medio corazon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview896"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.75544332"
+     inkscape:cx="266.7308"
+     inkscape:cy="402.41272"
+     inkscape:window-width="1920"
+     inkscape:window-height="1046"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs891" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.659139,-42.168502)">
+    <path
+       id="path2"
+       style="fill:#d40000;stroke-width:8.81944"
+       d="m 78.132972,42.168502 c -11.577626,0 -22.681407,4.598637 -30.8684,12.784749 -8.079838,8.243086 -12.605433,19.325788 -12.605433,30.868401 0,11.5427 4.525595,22.625238 12.605433,30.867888 l 59.707988,59.88368 c 1.09588,1.09509 2.53618,1.76571 4.06642,1.90686 V 56.99137 l -2.03812,-2.038119 C 100.81377,46.767139 89.71051,42.168502 78.132972,42.168502 Z" />
+  </g>
+</svg>

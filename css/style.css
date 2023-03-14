@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+
+:root {
+    --main-background-color: darkblue;
+    --main-letters-color:black;
+    --main-ascent-color:red;
+    --product-background-color:lightblue;
+    --product-letters-color:darkblue;
+    --product-width: 150px;
+    --product-height: calc(var(--product-width)*2);
+    --image-product-height: calc(var(--product-height)*0.4);
+    --image-grade-height: calc(var(--product-height)*0.08);
+  
+    
+}
+
+body{
+    background-color: var(--main-background-color) ;
+    font-family: 'Arimo', Verdana, Geneva, Tahoma, sans-serif;
+
+    font-size: 15px;
+}
+
+/**
+product styles
+*/
+.productContainer{
+    width: var(--product-width);
+    height: var(--product-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color:var( --product-letters-color);
+    background-color: var(--product-background-color) ;
+    border-radius: 10px;
+    padding: 5px;
+    font-size:1.1rem;
+}
+.productContainer .Product_Image{
+    height:var(--image-product-height);
+    
+}
+.Image-container{
+    padding: 10px;
+}
+
+.productContainer .Grade_image{
+    height:var( --image-grade-height);
+
+}
+
+
