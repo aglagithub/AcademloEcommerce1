@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Tienda Andres Gilberto Lara</title>
-    <link rel="stylesheet" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./images/purchase-tag.png">
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./images/purchase-tag.png" />
+  </head>
+  <body style="color: white">
+    <!-- Loader -->
+    <div class="loader-screen loader--hidden">
+      <span class="loader"> </span>
+    </div>
+    <!-- Loader. end -->
 
-</head>   
-<body style="color:white;">
     <header>Cabecera</header>
     <nav>Navegacion</nav>
-    <section>MenuProduts</section>
-    <section><article>Art1</article></section>
-    <aside>Aside</aside>
+    <main>
+      <section id="products" >Productos</section>
+
+      <aside id="carrito" style="display: none">
+        <div id="carrito-titulo"></div>
+        <div id="carrito-contents"></div>
+        <div id="carrito-total"></div>
+        <div id="boton-pago"><button>Ir a Pagar</button></div>
+      </aside>
+    </main>
     <footer>Pie de página</footer>
 
-
-
-
-
     <!-- JS -->
-    <script src="recursos/productos.js" defer></script>
+    <script src="js/productos.js" defer></script>
+    <script src="js/carrito.js" defer></script>
+
     <script src="js/main.js" defer></script>
-    
-</body>
+  </body>
 </html>
