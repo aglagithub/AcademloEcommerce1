@@ -7,26 +7,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="./images/purchase-tag.png" />
   </head>
-  <body style="color: white">
+  <body>
     <!-- Loader -->
     <div class="loader-screen loader--hidden">
       <span class="loader"> </span>
     </div>
     <!-- Loader. end -->
 
-    <header>Cabecera</header>
-    <nav>Navegacion</nav>
-    <main>
-      <section id="products" >Productos</section>
+    <header class="header">
+      <nav class="nav container">
+        <div class="nav__menu">
+          <!-- <button type="button">icon</button> -->
+          <ul class="nav__list">
+            <a href="/" class="logo__icon">
+              <img src="images/purchase-tag.svg" alt="logo" />
+            </a>
+            <li class="nav__items">
+              <a href="#" class="nav__link">Inicio</a>
+            </li>
+            <li class="nav__items">
+              <a href="#" class="nav__link">Productos</a>
+            </li>
+            <li class="nav__items">
+              <a href="#" class="nav__link">Contacto</a>
+            </li>
+            <li class="nav__items">
+              <a href="#" class="nav__link">Acerca de</a>
+            </li>
+            <button type="button" class="nav__btn" id="btn--carrito">
+              <img src="images/Carrito.svg" alt="" />
+            </button>
+            <button type="button" class="nav__btn" id="btn--puchase">
+              <img src="images/money-bag.svg" alt="" />
+            </button>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="main">
+      <section id="products">Productos</section>
 
-      <aside id="carrito" style="display: none">
+      <aside id="carrito" >
         <div id="carrito-titulo"></div>
         <div id="carrito-contents"></div>
         <div id="carrito-total"></div>
         <div id="boton-pago"><button>Ir a Pagar</button></div>
       </aside>
     </main>
-    <footer>Pie de página</footer>
+    <footer class="footer section">
+      <div class="footer__container container">
+        <div class="footer__top">
+          <div class="footer__left"></div>
+          <h3 class="footer_tittle">Sobre Nosotros</h3>
+          <p class="footer__test">Trabajo Individual: realizado por Andrés Gilberto Lara Amaya. No fue posible la coordinación para trabajo en equipo</p>
+          <div class="footr__right">
+            <h3 class="footer__tittle">Redes Sociales</h3>
+            <ul class="footer__redes">
+                <li>
+                <a href="https://www.facebook.com/" class="footer__link"><img src="images/facebook.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/" class="footer__link"><img src="images/linkedin.svg" alt=""></a>
+                </li>
+                
+            </ul>
+
+          </div>
+        </div>
+        <div class="footer__bottom"></div>
+        <div class="footer__text">Todos los derechos reservados. 2023</div>
+      </div>
+    </footer>
 
     <!-- JS -->
     <script src="js/productos.js" defer></script>

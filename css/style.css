@@ -1,195 +1,113 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
 
+/*Variable declarations*/
+
 :root {
     --header-height: 60px;
+    --primary-color: hsl(354, 78%, 60%);
+    --body-color: hsl(286, 4%, 97%);
+    --text-color: hsl(0, 0%, 20%);
+    --title-color: hsl(0, 0%, 10%);
+    --bg-color: hsl(0, 0%, 100%);
+    --card-color: hsl(0, 0%, 98%);
 
+    /*--body-font: 'Open Sans', sans-serif;
+    --title-font: 'Poppins', sans-serif;*/
 
-    --main-background-color: darkblue;
-    --main-letters-color: black;
-    --main-ascent-color: red;
-    --product-background-color: #eee;
-    --product-letters-color: darkblue;
-    --product-button-color: darkblue;
-    --product-button-letters-color: #eee;
+    --body-font: 'Arimo', Verdana, Geneva, Tahoma, sans-serif;;
+    --title-font: 'Arimo', Verdana, Geneva, Tahoma, sans-serif;;
 
-    --product-width: 150px;
-    --product-height: calc(var(--product-width)*2);
-    --image-product-height: calc(var(--product-height)*0.5);
-    --image-grade-height: calc(var(--product-height)*0.06);
+    --big-font: 2rem;
+    --medium-font: 1.5rem;
+    --normal-font: 1rem;
+    --small-font: 1rem;
+    --tiny-font: .75rem;
 
-    --carrito-container-width:200px
+    --font-bold: 700;
+    --font-medium: 600;
+    --font-normal: 400;
+    --font-tiny: 300;
 
-
+    --sp-0-5: .5rem;
+    --sp-0-75: .75rem;
+    --sp-1: 1rem;
+    --sp-1-5: 1.1rem;
+    --sp-2: 2rem;
 }
-html{
+
+
+@media(min-width:992px) {
+    :root {
+        --big-font: 2.5rem;
+        --medium-font: 2rem;
+        --normal-font: 1.25rem;
+        --small-font: 1rem;
+        --tiny-font: .8rem;
+
+    }
+}
+
+/*Reset */
+html, body {
+    height: 100%;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    scroll-behavior: smooth;
     box-sizing: border-box;
 }
-body {
-    background-color: var(--main-background-color);
-    font-family: 'Arimo', Verdana, Geneva, Tahoma, sans-serif;
 
-    font-size: 15px;
+*,
+*::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+input,textarea{
+    font-family:  var(--body-font);
+    font-size: var(--normal-font);
+}
+
+body{
+    font-family: var(--body-font);
+    font-size: var(--normal-font);
+    font-weight: var(--font-normal);
+    color:var(--text-color);
+    background-color: var(--body-color);
+}
+
+a{
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: var(--tiny-font);
+    font-weight: var(--font-medium);
+    color:var(--tittle-color);
+}
+
+ul,ol{
+    list-style: none;
 }
 
 img{
     max-width: 100%;
     height: auto;
+
 }
 
 button {
-    background-color: var(--product-button-color);
-    color: var(--product-button-letters-color);
-    border: none;
-    outline: none;
-    user-select: none;
-    cursor: printer;
-}
-/*********/
-/*Helpers*/
-/*********/
-.no-display{
-    display: none;
-}
-
-/*********/
-/*loader*/
-/*********/
-
-.loader-screen{
-    position: fixed;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-
-   
-}
-.load__container{
-border: 1px solid green
-
-}
-.loader{
-    display: inline-block;
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
-
-       
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-.loader--hidden{
-    opacity:0;
-    visibility:hidden;
-
-}  
-/*loader. end*/
-
-/**
-product styles
-*/
-#products {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    row-gap: 10px;
-    column-gap: 10px;
-}
- 
-
-.productContainer {
-    width: var(--product-width);
-    height: var(--product-height);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--product-letters-color);
-    background-color: var(--product-background-color);
-    border-radius: 10px;
-    padding: 5px;
-    font-size: 0.9rem;
-
-}
-
-.productContainer div {
-    padding: 0;
-    margin-bottom: 0em;
-
-}
-
-.productContainer .Product_Image {
-    height: var(--image-product-height);
-
-}
-
-.Image-container {
-    padding: 10px;
-}
-
-.productContainer .Grade_image {
-    height: var(--image-grade-height);
-
-}
-
-/***************************/
-/*Carrito*/
-#carrito{
-background-color: cadetblue;
-display: inline-block;
-border-radius: 10px;
-}
-#carrito-titulo{
-    color:black;
-    text-align: center;
-}
-#carrito-total{
-    color:black;
-    text-align: left;
-    padding: 10px;
-}
-.carritoContainer {
-   
-   width: var(--carrito-container-width);
-   background-color: #eee;
-   color:#222;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    
-
-    row-gap: 10px;
-    column-gap: 10px;
-    justify-items:flex-start;
-    border-bottom:3px solid black; 
-    padding: 1rem;
-    margin: 10px;
-}
-
-#boton-pago{
-padding-bottom: 10px;
-
-}
-
-#boton-pago button{
-    background-color: darkblue;
-    padding:10px;
-    display: block;
-    margin: auto;
-    font-size: 1.1rem;
+border: none;
+outline: none;
+background-color: transparent;
+user-select: none;
+cursor: pointer;
 }

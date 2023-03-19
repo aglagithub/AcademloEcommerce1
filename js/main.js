@@ -1,5 +1,7 @@
 
 const IMAGES_PATH = "../images/Prods/"
+const NOMBRE_REPO_LOCAL_STORAGE = "academloStorage";
+const NOMBRE_DB = "carrito"
 
 /*======================================*/
 /* function consoleLogProducts(productos) {
@@ -59,9 +61,9 @@ function createProductHTML(procuctJSON) {
       <div class="Product_State" id="state">${disponible}</div>\
       <button\
         type="button"\
-        class="Btn_purchase"\
-        id="numProdBuy"\
-        value="ProdNumber"\
+        class="btn_purchase"\
+        id="${procuctJSON['prodId']}"\
+        value="${procuctJSON['prodId']}"\
         ${disabled}\
       >\
         Comprar\
@@ -93,34 +95,175 @@ displayProducts(productos.length)
 /****************************** */
 //Display de un producto en carrito:
 /****************************** */
-function generateProductHTMLInCarrito(producto) {
+function getProdPorID(prodID) {
+
+
+}
+function generateProductHTMLInCarrito(productoEncarrito) {
     let productHTML = "";
+
+    let nombreProducto = null;
+    let precio = null;
+    let cantidad = null;
+
+
+    //console.log(productoEncarrito.prodId)
+    //console.log(productos[0].prodId)
+
+    for (let i = 0; i < productos.length; i++) {
+
+        if (productos[i].prodId == productoEncarrito.prodId) {
+            nombreProducto = productos[i].nombre
+            precio = productos[i].precio
+            cantidad = productoEncarrito.cantidad
+
+
+            productoEncarrito.subtotal = precio * cantidad
+            break
+        }
+
+    }
+    if (nombreProducto === null) {
+        return 0
+    }
+
+
     productHTML = `
     <div class="carritoContainer">
     <div class="carrito-Item"> 
-    <div class="carrito-NombreProducto">Producto: ${producto['nombreProducto']} </div>
-    <div class="carrito-Producto-Precio">Precio: ${producto['valorUnitario']}</div>
-    <div class="carrito-Producto-cantidad">Cantidad: ${producto['cantidad']}</div>
+    <div class="carrito-NombreProducto">Producto: ${nombreProducto} </div>
+    <div class="carrito-Producto-Precio">Precio: ${precio}</div>
+    <div class="carrito-Producto-cantidad">Cantidad: ${cantidad}</div>
     <hr>
-    <div class="carrito-Producto-Total">Subtotal: ${producto['valorProductos']}</div>
+    <div class="carrito-Producto-Total">Subtotal: ${productoEncarrito.subtotal}</div>
   </div>
     `
+
     return productHTML
 }
 /****************************** */
 //coloca contenidos de todos los productos del carrito en pantalla
 /****************************** */
 function displayCarritoContents() {
+
+
     let carritoContent = document.getElementById("carrito-contents")
-    for (let index = 0; index < carrito.productos.length; index++) {
-        carritoContent.innerHTML += generateProductHTMLInCarrito(carrito.productos[index])
+    for (let index = 0; index < carrito.length; index++) {
+        //console.log(carrito[index])
+        carritoContent.innerHTML += generateProductHTMLInCarrito(carrito[index])
     }
+
+}
+
+function calculaMontoEnCarrito() {
+    let valorTotalEnCarrito = 0;
+    for (let index = 0; index < carrito.length; index++) {
+        valorTotalEnCarrito += carrito[index].subtotal
+    }
+
+    return valorTotalEnCarrito;
+
 }
 
 function displayCarritoWindow() {
     document.getElementById('carrito-titulo').innerHTML = `<h2>Carrito</h2>`
     displayCarritoContents()
-    document.getElementById('carrito-total').innerHTML = `<h2>Total: CO$ ${carrito.ValorTotal}</h2>`
+    document.getElementById('carrito-total').innerHTML = `<h2>Total: CO$ ${calculaMontoEnCarrito()}</h2>`
 }
 
 displayCarritoWindow()
+
+/************************* */
+/* Registro Manejadores de eventos */
+/************************* */
+
+/**Manejador de eventos para botón de pago */
+document.getElementById("boton-pago").addEventListener("click", function () {
+    alert("ir a Pagar");
+});
+
+/**Manehadores de evenatos para incluir produtos en carrito */
+let purchaseButtons = Array.from(document.querySelectorAll('.btn_purchase'));
+
+purchaseButtons.forEach((boton) => {
+    boton.addEventListener("click", function (e) {
+        alert(e.target.id);
+        //putProductInCarrito(e.target.id)
+
+    })
+})
+
+/**Manehadores de evenatos para incluir produtos en carrito. End */
+
+/********************************** */
+/**Manejo de items en IndexedDB*/
+/********************************** */
+
+/* function putProductsInCarrito(id) {
+
+    productos.forEach((producto) => {
+        if (producto.prodId == id) {
+            console.log(producto);
+            putProductInCarrito(prodId);
+        }
+
+    })
+
+}
+
+ */
+function soportaIndexDB() {
+
+    if ('indexedDB' in window) {
+        return true
+    } else {
+        return false
+    }
+}
+
+function existeDB(db) {
+    let baseDedatos
+    let solicitudDeConexion = indexedDB.open(db, 1)
+
+    solicitudDeConexion.onsuccess = function (evento) {
+        baseDedatos = evento.target.result
+        console.log("onsuccess")
+
+    }
+    solicitudDeConexion.onerrror = function (evento) {
+        baseDedatos = "Error"
+        console.log("onerrror")
+
+    }
+    solicitudDeConexion.onupgradeneeded = function (evento) {
+        console.log("onupgradeneeded")
+        baseDedatos = evento.target.result
+        let notas = baseDedatos.createObjectStore('notas', { autoIncrement: true })
+        let transaccion =baseDedatos.transaction(['notas'],'readwrite')
+        contenidoDB=transaccion.createObjectStore('notas')
+        let nota ={saludo:"Hello"}
+        notas.add(nota)
+        this.transaction.oncomplete = function(){
+            console.log("onclomplete")
+        }
+
+    }
+
+}
+
+let contenidoDB
+console.log('existe Base de datos?:', existeDB(NOMBRE_REPO_LOCAL_STORAGE))
+
+
+function leeIndexedDB() {
+    return false
+
+};
+
+
+
+
+
+
+
+
