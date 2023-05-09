@@ -8,6 +8,7 @@ function cart(db, printProducts, initialContet) {
     const countDOM = document.querySelector('.cart__count--item')
     const totalDOM = document.querySelector('.cart__total--item')
     const checkoutDOM = document.querySelector('.btn--buy')
+    const vaciarCarrito = document.querySelector('.btn--vaciar-carrito')
 
 
     function printCart() {
@@ -75,7 +76,7 @@ function cart(db, printProducts, initialContet) {
         //console.log(db)
 
         let numeroEnCarrito = 0
-        let numeroDisponibles =0
+        let numeroDisponibles = 0
 
         cart.forEach((registro => {
             if (registro.id == productId) {
@@ -91,7 +92,7 @@ function cart(db, printProducts, initialContet) {
         }))
         //console.log("Numero Disponibles", numeroDisponibles)
 
-        
+
         if (numeroEnCarrito < numeroDisponibles) {
             return true
         } else {
@@ -110,6 +111,7 @@ function cart(db, printProducts, initialContet) {
             }
 
             printCart()
+            //window.alert("Producto Añadido al carrito.")
         } else {
             window.alert("Los sentimos en el momento no hay stock Suficiente")
         }
@@ -179,6 +181,7 @@ function cart(db, printProducts, initialContet) {
         if (e.target.closest('.add--to--chart')) {
             const id = +e.target.closest('.add--to--chart').dataset.id
             addToCart(id)
+            
         }
 
 
@@ -205,8 +208,15 @@ function cart(db, printProducts, initialContet) {
     checkoutDOM.addEventListener('click', function () {
         checkout()
     }
-
     )
+
+    vaciarCarrito.addEventListener('click', function () {
+        //window.alert("Vaciando carrito")
+        cart = []
+        printCart()
+    }
+    )
+
 
     //tests
     //addToCart(1)

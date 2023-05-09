@@ -97,7 +97,10 @@
     <div class="cart__container">
       <div class="cart__header">
         <h3 class="cart__title">Carrito de Compras</h3>
-        <button class="cart__btn btn--close" title="None" type="button">
+        <button class="cart__btn btn--vaciar-carrito" title="Vaciar Carrito" type="button">
+          <i class="bx bx-trash"></i>
+        </button>
+        <button class="cart__btn btn--close" title="Cerrar" type="button">
           <i class="bx bx-x"></i>
         </button>
       </div>
@@ -135,12 +138,12 @@
       </div>
       <div class="cart__footer">
         <div class="cart__count">
-          <span class="cart__count--text">Articulos</span>
+          <span class="cart__count--text">Articulos: </span>
           <span class="cart__count--item">0</span>
         </div>
         <div class="cart__total">
-          <span class="cart__total--text">Total</span>
-          <span class="cart__total--item">$</span>
+          <span class="cart__total--text">Total: $</span>
+          <span class="cart__total--item"></span>
 
         </div>
         <button type="button" class="cart__btn btn--buy">comprar</button>

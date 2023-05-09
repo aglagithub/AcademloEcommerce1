@@ -525,7 +525,7 @@ button {
 
 .cart__header {
     display: grid;
-    grid-template-columns: 2fr 2fr .5fr;
+    grid-template-columns: 2fr 2fr .5fr .5fr;
     align-items: center;
     width: 100%;
     padding: var(--sp-1-5) 0 0 var(--sp-1);
