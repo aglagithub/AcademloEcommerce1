@@ -4,17 +4,11 @@
 
 :root {
     --header-height: 60px;
-    /* --primary-color: hsl(354, 78%, 60%);  */
-    --primary-color: hsl(354, 74%, 71%); 
-    /* --primary-color: darkblue; */
-
+    /* --primary-color: hsl(354, 78%, 60%); */
+    --primary-color: darkblue;
     --body-color: hsl(286, 4%, 97%);
-    --dark-mode-body-color: hsl(300, 27%, 16%); 
-    --dark-mode-letter-color: #eee;
-
     --text-color: hsl(0, 0%, 20%);
     --title-color: hsl(0, 0%, 10%);
-    
     --bg-color: hsl(0, 0%, 100%);
     --card-color: hsl(0, 0%, 90%);
 
@@ -135,23 +129,10 @@ button {
 
 }
 
-#titular{
-    text-align:center;
-    padding-bottom: 1rem;
-}
-
 .section--title, .container {
     max-width: 1024px;
     margin: 0 1rem;
 }
-
-.dark-mode-background{
-    background-color: var(--dark-mode-body-color);
-}
-.dark-mode-letter-color{
-    color:var(--dark-mode-letter-color);
-}
-
 
 /************
 *global. End*
@@ -236,7 +217,6 @@ button {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin:auto 1rem;
 }
 
 .nav__logo {
@@ -299,9 +279,7 @@ button {
 }
 
 .nav__link:hover {
-    color: var(--primary-color);
-    font-size: 1.4rem;
-    font-weight: bold;
+    color: var(--primary-color)
 }
 
 .nav__buttons {
@@ -316,7 +294,6 @@ button {
 
 .btn--cart {
     position: relative;
-    margin-right:1rem;
 }
 
 .notify {
@@ -329,8 +306,6 @@ button {
     font-size: var(--tiny-font);
     border-radius: 50%;
     opacity: 0;
-    padding-top: 0.20rem;
-    padding-left:0.1rem;
     visibility: hidden;
     transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
 }
@@ -357,7 +332,6 @@ button {
 
 .products__title {
     margin-bottom: var(--sp-2);
-    /*color:yellow;*/
 }
 
 .product {
@@ -430,12 +404,6 @@ button {
 
 .product__title {
     grid-column: span 3;
-}
-
-.no-disponible{
-    background-color: hsl(0, 93%, 56%);
-    color: #eee;
-    padding: 0.5rem;
 }
 
 /*********
@@ -590,12 +558,11 @@ button {
     align-items: center;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 30px;
-    /* background-color: rgb(43, 226, 67); */
+    /*background-color: rgb(43, 226, 67);*/
 }
 
 .article__title {
     grid-column: span 4;
-    line-height: 1.4rem;
 
 }
 
